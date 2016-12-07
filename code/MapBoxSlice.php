@@ -19,6 +19,11 @@ class MapBoxSlice extends PageSlice
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $addressFields = $fields->fieldByName('Root.Address')->Fields();
+        $fields->removeByName('Address');
+        $fields->addFieldsToTab('Root.Main', $addressFields);
+
         return $fields;
     }
 }
