@@ -2,11 +2,10 @@
 Name: mapbox
 After: 'framework/*','cms/*'
 ---
-MapBoxSlice:
+MapBoxSliceAddress:
   extensions:
     - Addressable
     - Geocodable
-
 MapBoxSlice_Controller:
   extensions:
     - MapBox
