@@ -25,11 +25,12 @@ class MapBoxSlice extends PageSlice implements UseMapBox
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
+        
         $gridFieldConfig = new MapBoxSliceGridFieldConfig();
         $gridField = new GridField('Addresses', 'Addresses', $this->Addresses(), $gridFieldConfig);
 
         $fields->addFieldsToTab('Root.Main', array($gridField));
+        $this->extend('updateCMSFields', $fields);
         return $fields;
     }
 
@@ -40,12 +41,17 @@ class MapBoxSlice extends PageSlice implements UseMapBox
      */
     public function mapBoxMarkers()
     {
+        $markers = ArrayList::create(array());
         if ($addresses = $this->Addresses()) {
-            $markers = array();
             foreach ($this->Addresses() as $address) {
-                $markers[] = self::create_marker($address);
+                $markers->add(self::create_marker($address));
             }
-            return $markers;
+        }
+
+        $this->extend('updateMarkers', $markers);
+
+        if ($markers->count() > 0) {
+            return $markers->toNestedArray();
         } else {
             return null;
         }

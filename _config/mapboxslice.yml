@@ -1,6 +1,8 @@
 ---
 Name: mapbox
-After: 'framework/*','cms/*'
+After:
+  - 'framework/*'
+  - 'cms/*'
 ---
 MapBoxSliceAddress:
   extensions:
