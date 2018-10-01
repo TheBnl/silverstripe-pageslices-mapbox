@@ -6,6 +6,9 @@
  * Date: 03/10/16
  */
 
+use Broarm\Silverstripe\PageSlices\PageSlice;
+use Broarm\Silverstripe\PageSlices\PageSliceController;
+
 
 /**
  * MapBoxSlice
