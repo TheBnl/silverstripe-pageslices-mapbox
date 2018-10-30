@@ -1,7 +1,7 @@
 {
   "name": "bramdeleeuw/silverstripe-pageslices-mapbox",
   "description": "A Mapbox page slice, extending on the bramdeleeuw/silverstripe-pageslices module",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "keywords": ["silverstripe", "slice", "page", "layout", "map", "mapbox"],
   "license": "BSD-3-Clause",
   "authors": [
@@ -11,13 +11,21 @@
     }
   ],
   "require": {
-    "silverstripe/framework": ">=3.1",
-    "silverstripe/cms": ">=3.1",
-    "bramdeleeuw/silverstripe-mapbox": "*",
-    "bramdeleeuw/silverstripe-pageslices": "*",
-    "composer/installers": "*"
+    "silverstripe/framework": ">=4.0",
+    "silverstripe/cms": ">=4.0",
+    "symbiote/silverstripe-gridfieldextensions": "*",
+    "symbiote/silverstripe-addressable": "*",
+    "bramdeleeuw/silverstripe-pageslices": ">=2.0",
+    "bramdeleeuw/silverstripe-mapbox": "*"
   },
   "extra": {
-    "installer-name": "pageslices_mapbox"
+    "expose": [
+      "client"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Broarm\\PageSlices\\": "src"
+    }
   }
 }

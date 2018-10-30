@@ -1,13 +1,10 @@
 ---
-Name: mapbox
-After:
-  - 'framework/*'
-  - 'cms/*'
+Name: mapboxslice
 ---
-MapBoxSliceAddress:
+Broarm\PageSlices\MapBoxSliceAddress:
   extensions:
-    - Addressable
-    - Geocodable
-MapBoxSlice_Controller:
+    - Symbiote\Addressable\Addressable
+    - Symbiote\Addressable\Geocodable
+Broarm\PageSlices\MapBoxSliceController:
   extensions:
-    - MapBox
+    - XD\MapBox\MapBox

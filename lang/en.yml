@@ -1,4 +1,4 @@
 en:
-  MapBoxSlice:
+  Broarm\PageSlices\MapBoxSlice:
     PLURALNAME: Map sections
     SINGULARNAME: Map section

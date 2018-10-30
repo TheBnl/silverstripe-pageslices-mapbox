@@ -1,4 +1,4 @@
 nl:
-  MapBoxSlice:
+  Broarm\PageSlices\MapBoxSlice:
     PLURALNAME: Kaart onderdelen
     SINGULARNAME: Kaart onderdeel

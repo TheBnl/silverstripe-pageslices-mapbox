@@ -7,10 +7,10 @@ The map is supplied by the [Silverstripe Mapbox](https://github.com/TheBnl/silve
 ### Installation
 To use the map some configuration is needed on the Mapbox and Addressable modules. 
 ```
-GoogleGeocoding:
+Symbiote\Addressable\GeocodeService:
   google_api_key: 'YOUR_GEOCODING_API_KEY'
  
-MapBox:
+XD\MapBox\MapBox:
   access_token: 'YOUR_MAPBOX_ACCESS_TOKEN'
   style: 'YOUR_MAPBOX_STYLE'
 ```
