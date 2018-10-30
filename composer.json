@@ -16,7 +16,7 @@
     "symbiote/silverstripe-gridfieldextensions": "*",
     "symbiote/silverstripe-addressable": "*",
     "bramdeleeuw/silverstripe-pageslices": ">=2.0",
-    "bramdeleeuw/silverstripe-mapbox": "*"
+    "xddesigners/silverstripe-mapbox": "*"
   },
   "extra": {
     "expose": [
