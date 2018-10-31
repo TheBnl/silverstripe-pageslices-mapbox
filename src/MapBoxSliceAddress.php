@@ -2,6 +2,7 @@
 
 namespace Broarm\PageSlices;
 
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
 use Symbiote\Addressable\Addressable;
@@ -16,6 +17,9 @@ use Symbiote\Addressable\Geocodable;
  *
  * @method MapBoxSlice MapBoxSlice()
  * @property string Title
+ * @property string Link
+ * @property string Target
+ * @property int Sort
  */
 class MapBoxSliceAddress extends DataObject
 {
@@ -23,6 +27,8 @@ class MapBoxSliceAddress extends DataObject
 
     private static $db = [
         'Title' => 'Varchar',
+        'Link' => 'Varchar',
+        'Target' => 'Enum("_self,_blank", "_self")',
         'Sort' => 'Int'
     ];
 
@@ -44,7 +50,11 @@ class MapBoxSliceAddress extends DataObject
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Main', TextField::create('Title', 'Title'));
+        $fields->addFieldsToTab('Root.Main', [
+            TextField::create('Title'),
+            TextField::create('Link'),
+            DropdownField::create('Target', 'Open link in', $this->getTargetOptions())
+        ]);
         $this->extend('updateCMSFields', $fields);
 
         if (($addressTab = $fields->fieldByName('Root.Address')) && $addressFields = $addressTab->Fields()) {
@@ -54,6 +64,18 @@ class MapBoxSliceAddress extends DataObject
 
         $fields->removeByName(['Sort', 'MapBoxSliceID']);
         return $fields;
+    }
+
+    /**
+     * Translate the option labels
+     *
+     * @return array
+     */
+    public function getTargetOptions()
+    {
+        return array_map(function ($option) {
+            return _t(__CLASS__ . ".$option", $option);
+        }, $this->dbObject('Target')->enumValues());
     }
 
     public function canView($member = null)

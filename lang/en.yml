@@ -2,3 +2,6 @@ en:
   Broarm\PageSlices\MapBoxSlice:
     PLURALNAME: Map sections
     SINGULARNAME: Map section
+  Broarm\PageSlices\MapBoxSliceAddress:
+    _self: 'Current window'
+    _blank: 'New tab'

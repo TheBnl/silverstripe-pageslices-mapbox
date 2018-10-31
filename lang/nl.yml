@@ -2,3 +2,6 @@ nl:
   Broarm\PageSlices\MapBoxSlice:
     PLURALNAME: Kaart onderdelen
     SINGULARNAME: Kaart onderdeel
+  Broarm\PageSlices\MapBoxSliceAddress:
+    _self: 'Huidige venster'
+    _blank: 'Nieuw venser'
