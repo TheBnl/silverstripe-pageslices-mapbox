@@ -52,6 +52,7 @@ class MapBoxSliceAddress extends DataObject
             $fields->addFieldsToTab('Root.Main', $addressFields);
         }
 
+        $fields->removeByName(['Sort', 'MapBoxSliceID']);
         return $fields;
     }
 
